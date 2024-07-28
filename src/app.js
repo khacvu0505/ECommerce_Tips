@@ -13,7 +13,13 @@ const app = express();
 app.use(morgan("dev")); // "dev" | "common" | "short" | "tiny" | "combined
 app.use(helmet());
 app.use(compression());
+
 // init db
+require("./dbs/init.mongodb");
+
+// Check overload connection
+const { checkOverload } = require("./helpers/check.connect");
+checkOverload();
 
 // init routes
 app.get("/", (req, res, next) => {
