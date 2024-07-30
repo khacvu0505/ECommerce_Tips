@@ -1,3 +1,4 @@
+require("dotenv").config();
 const express = require("express");
 // Use morgan to log requests to the console
 const morgan = require("morgan");
